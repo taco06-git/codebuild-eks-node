@@ -5,7 +5,7 @@ const config = require('config')
 console.log(config);
 
 app.get('/', (req, res) => {
-  res.send('APP1 is listening on PORT 3000')
+  res.send('APP2 is listening on PORT 3000')
 })
 
 app.get('/status', (req, res) => {
