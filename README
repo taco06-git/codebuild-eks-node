@@ -1,0 +1,20 @@
+
+## set this env variables in code build .
+
+AWS_DEFAULT_REGION : eu-north-1
+
+AWS_CLUSTER_NAME:   eks-build1
+
+IMAGE_REPO_NAME: node
+
+AWS_ACCOUNT_ID: 5937975037831
+
+IMAGE_TAG : latest
+
+eksctl create cluster --name eks-build1  --region eu-north-1 --nodegroup-name ng-1 --node-type t3.medium --nodes 1 --nodes-min 1 --nodes-max 1
+
+add role to eks aws-auth configmap:
+-------------------------------------
+eksctl create iamidentitymapping --cluster eks-build1 --arn arn:aws:iam::593793031520:role/CodeBuildKubectlRole --group system:masters --username CodeBuildKubectlRole
+
+
